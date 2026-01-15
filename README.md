@@ -4,16 +4,13 @@ An advanced web application built with Elixir, Phoenix, and LiveView that calcul
 
 ## Demo
 
-### Video Walkthrough
-
-<video width="100%" controls>
-  <source src="./fuel_calculator_app_recording.mov" type="video/quicktime">
-  Your browser does not support the video tag. <a href="./fuel_calculator_app_recording.mov">Download the video</a>.
-</video>
-
 ### Screenshot
 
 ![Application Screenshot](./app_screen_shot.png)
+
+### Video Walkthrough
+
+📹 [Click here to watch the application demo video](./fuel_calculator_app_recording.mov)
 
 ## Features
 
