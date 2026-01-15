@@ -84,8 +84,8 @@ defmodule FuelCalculatorWeb.FuelCalculatorLive do
           <div class="card bg-base-100 shadow-xl">
             <div class="card-body">
               <h2 class="card-title text-2xl mb-4">Mission Parameters</h2>
-
-              <!-- Mass Input -->
+              
+    <!-- Mass Input -->
               <div class="form-control">
                 <label class="label">
                   <span class="label-text font-semibold">Spacecraft Mass (kg)</span>
@@ -101,8 +101,8 @@ defmodule FuelCalculatorWeb.FuelCalculatorLive do
                   />
                 </form>
               </div>
-
-              <!-- Add Flight Step -->
+              
+    <!-- Add Flight Step -->
               <div class="divider">Flight Path</div>
 
               <div class="form-control">
@@ -131,8 +131,8 @@ defmodule FuelCalculatorWeb.FuelCalculatorLive do
                   </button>
                 </div>
               </div>
-
-              <!-- Flight Path Display -->
+              
+    <!-- Flight Path Display -->
               <div class="form-control mt-4">
                 <label class="label">
                   <span class="label-text font-semibold">Current Flight Path</span>
@@ -154,10 +154,10 @@ defmodule FuelCalculatorWeb.FuelCalculatorLive do
                     <%= for {{action, planet}, index} <- Enum.with_index(@flight_path) do %>
                       <div class="flex items-center gap-2 p-3 bg-base-200 rounded-lg">
                         <span class="badge badge-neutral">
-                          <%= index + 1 %>
+                          {index + 1}
                         </span>
                         <span class="flex-1 font-medium">
-                          <%= format_action(action) %> - <%= format_planet(planet) %>
+                          {format_action(action)} - {format_planet(planet)}
                         </span>
                         <button
                           class="btn btn-ghost btn-sm btn-circle"
@@ -174,15 +174,15 @@ defmodule FuelCalculatorWeb.FuelCalculatorLive do
               </div>
             </div>
           </div>
-
-          <!-- Results Section -->
+          
+    <!-- Results Section -->
           <div class="card bg-base-100 shadow-xl">
             <div class="card-body">
               <h2 class="card-title text-2xl mb-4">Fuel Requirements</h2>
 
               <%= if @error do %>
                 <div class="alert alert-error">
-                  <span><%= @error %></span>
+                  <span>{@error}</span>
                 </div>
               <% end %>
 
@@ -190,27 +190,27 @@ defmodule FuelCalculatorWeb.FuelCalculatorLive do
                 <div class="stats stats-vertical shadow">
                   <div class="stat">
                     <div class="stat-title">Total Fuel Required</div>
-                    <div class="stat-value text-primary"><%= format_number(@total_fuel) %> kg</div>
+                    <div class="stat-value text-primary">{format_number(@total_fuel)} kg</div>
                     <div class="stat-desc">For the complete mission</div>
                   </div>
                 </div>
-
-                <!-- Mission Details -->
+                
+    <!-- Mission Details -->
                 <div class="mt-6">
                   <h3 class="font-semibold mb-2">Mission Summary</h3>
                   <div class="space-y-1 text-sm">
                     <div class="flex justify-between">
                       <span>Spacecraft Mass:</span>
-                      <span class="font-medium"><%= @mass %> kg</span>
+                      <span class="font-medium">{@mass} kg</span>
                     </div>
                     <div class="flex justify-between">
                       <span>Flight Steps:</span>
-                      <span class="font-medium"><%= length(@flight_path) %></span>
+                      <span class="font-medium">{length(@flight_path)}</span>
                     </div>
                     <div class="flex justify-between">
                       <span>Total Mission Mass:</span>
                       <span class="font-medium">
-                        <%= format_number(String.to_integer(@mass) + @total_fuel) %> kg
+                        {format_number(String.to_integer(@mass) + @total_fuel)} kg
                       </span>
                     </div>
                   </div>
@@ -222,8 +222,8 @@ defmodule FuelCalculatorWeb.FuelCalculatorLive do
                   </span>
                 </div>
               <% end %>
-
-              <!-- Example Scenarios -->
+              
+    <!-- Example Scenarios -->
               <div class="mt-6">
                 <h3 class="font-semibold mb-2">Example Scenarios</h3>
                 <div class="space-y-2 text-xs">

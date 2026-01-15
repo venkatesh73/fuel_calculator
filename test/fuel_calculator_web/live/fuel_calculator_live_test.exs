@@ -504,7 +504,7 @@ defmodule FuelCalculatorWeb.FuelCalculatorLiveTest do
       refute html =~ "Please enter a valid positive mass"
     end
 
-    test "clears error when adding new step", %{conn: conn} do
+    test "error persists when adding step with invalid mass", %{conn: conn} do
       {:ok, view, _html} = live(conn, ~p"/")
 
       # Cause error
@@ -512,13 +512,14 @@ defmodule FuelCalculatorWeb.FuelCalculatorLiveTest do
       |> form("form[phx-change='update_mass']", mass: "invalid")
       |> render_change()
 
-      # Add step
+      # Add step - error should persist since mass is still invalid
       html =
         view
         |> element("button", "Add")
         |> render_click(%{action: "launch", planet: "earth"})
 
-      refute html =~ "alert-error"
+      assert html =~ "alert-error"
+      assert html =~ "Please enter a valid positive mass"
     end
   end
 end
